@@ -5,7 +5,8 @@
     var g_data = null;
 
     function populateTable() {
-        $.getJSON("https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/database/amiibo.json", function(data) {
+        const amiiboAPI = "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/";
+        $.getJSON(amiiboAPI + "database/amiibo.json", function(data) {
             amiiboDatabase = data;
             g_data = data;
             var t = $('#dataTable').DataTable();
@@ -15,7 +16,7 @@
                 var keytext = key.padStart(16, '0');
                 var keylink = key.substring(2).padStart(16, '0');
                 
-                var link = "https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_" + keylink.substr(0, 8) + "-" + keylink.substr(8, 8) + ".png"
+                var link = amiiboAPI + "images/icon_" + keylink.substr(0, 8) + "-" + keylink.substr(8, 8) + ".png"
                 var image = `<div class="amiibo-image"><img src="${link}" /></div>`;
                 t.row.add([image, `<span class="table-text">${name}</span>`, `<span class="table-text">${keytext}</span>`]);
             });
@@ -95,6 +96,7 @@
 
         zip.generateAsync({type:"blob"}).then(function(content) {
             amiiboZip = content;
+            $("#loader").hide();
             $(".hide_until_zipped").removeClass("hide_until_zipped");
             $("a#downloadZip").click(function(e) {
                 e.preventDefault();
