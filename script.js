@@ -39,10 +39,10 @@
         var arr = new Uint8Array(540);
         // Set UID
         arr.set([0x04, 0xC0, 0x0A, 0x46, 0x61, 0x6B, 0x65, 0x0A], 0x1D4);
-        
+
         // Set BCC, Internal, Static Lock, and CC
         arr.set([0x65, 0x48, 0x0F, 0xE0, 0xF1, 0x10, 0xFF, 0xEE], 0x0);
-        
+
         // Set 0xA5, Write Counter, and Unknown
         arr.set([0xA5, 0x00, 0x00, 0x00], 0x28);
 
@@ -59,11 +59,11 @@
         arr.set(getRandomBytes(32), 0x1E8);
 
         // write key/amiibo num in big endian as a 64 bit value starting from offset off
-        var off = 0x1DC;
         id = id.substring(2);
 
+        var off1 = 84, off2 = 0x1DC;
         // write identification block
-        for(var i = 0, off1 = 84, off2 = 0x1DC; i < 16; i += 2, off1 += 1, off2 += 1) {
+        for(var i = 0; i < 16; i += 2, off1 += 1, off2 += 1) {
             var currByte = parseInt(id.substring(i, i + 2), 16);
             arr[off1] = currByte
             arr[off2] = currByte
