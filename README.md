@@ -13,3 +13,5 @@ Decrypted offsets are based on amiitool.
 | Dynamic Lock, RFUI             | 208-20B                | 208-20B                | 01 00 0F BD             |                                                 |
 | CFG0                           | 20C-20F                | 20C-20F                | 00 00 00 04             |                                                 |
 | CFG1                           | 210-213                | 210-213                | 5F 00 00 00             |                                                 |
+
+*Wumiibo is not affiliated, associated, authorized, endorsed by, or in any way officially connected with Nintendo. No  amiibo™ or digital representations of amiibo™ are included in this project. Binaries created with this project are not intended for sale or distribution. This project is for educational and archival purposes only.*
