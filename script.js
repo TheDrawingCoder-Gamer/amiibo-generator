@@ -75,7 +75,7 @@
     function downloadBin(name, id) {
         var data = generateData(id);
 
-        file = name + " (" + id.substr(4, 12) + (keysLoaded ? "" : ", Decrypted") + ").bin";
+        file = name + "[" + id.substr(4, 12) + "](" + (keysLoaded ? "" : ", Decrypted") + ").bin";
         console.log(file)
         download("data:application/octet-stream;base64," + base64.fromBytes(data), file, "application/octet-stream");
     };
